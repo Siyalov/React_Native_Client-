@@ -6,7 +6,7 @@ export default function LigthButton(props) {
  
   return (
     <View style={styles.chat}>
-      <Text style={styles.buttonText}>{props.text}</Text>
+      <Text style={styles.text}>{props.text}</Text>
     </View>
   );
 }
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  buttonText: {
+  text: {
     fontWeight: 'bold',
     fontSize: 18,
     color: '#FB7360',

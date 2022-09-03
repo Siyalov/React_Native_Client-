@@ -14,6 +14,8 @@ export default function MoreButton() {
 
 const styles = StyleSheet.create({
   more: {
+    
+    padding: 5,
     backgroundColor: '#FB7360',
     borderRadius: 16,
     flex: 1,
