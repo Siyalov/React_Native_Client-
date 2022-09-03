@@ -4,17 +4,13 @@ import { Text, StyleSheet, View } from 'react-native';
 export default function MoreButton() {
   return (
     <View style={styles.more}>
-      <Text style={[styles.text, styles.more]}>
-        Показать больше
-       
-      </Text>
+      <Text style={[styles.text, styles.more]}>Показать больше</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   more: {
-    
     padding: 5,
     backgroundColor: '#FB7360',
     borderRadius: 16,
@@ -29,5 +25,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'white',
     lineHeight: 24,
-  }, 
+  },
 });

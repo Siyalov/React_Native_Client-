@@ -18,10 +18,7 @@ export default function Registration() {
       </View>
       <View style={styles.fields}>
         <InputField />
-        <InputField />
-        <InputField />
-        <InputField />
-        <InputField />
+        
       </View>
     </View>
   );
