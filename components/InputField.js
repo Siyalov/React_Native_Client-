@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'white',
     lineHeight: 24,
-   
   },
   marginBottom: {
     marginTop: 95,

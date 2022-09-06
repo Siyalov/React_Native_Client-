@@ -1,11 +1,11 @@
 import React from 'react';
-import { Text, StyleSheet, View} from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 
 export default function ActiveButton(props) {
-  console.log(props)
-  console.log(props.text)
-  console.log('LigthButton')
-  
+  console.log(props);
+  console.log(props.text);
+  console.log('LigthButton');
+
   return (
     <View style={styles.call}>
       <Text style={styles.text}>Звонок</Text>

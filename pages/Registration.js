@@ -18,7 +18,6 @@ export default function Registration() {
       </View>
       <View style={styles.fields}>
         <InputField />
-        
       </View>
     </View>
   );

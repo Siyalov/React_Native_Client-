@@ -1,21 +1,52 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
+import { Text, View, StyleSheet, TextInput } from 'react-native';
 
-export default function ClientItem({ client }) {
+import ClientItem from '../components/ClientItem';
+
+const client1 = {
+  name: 'Петр Петров',
+  photo: require('../assets/Petr.png'),
+  city: 'Санкт-Петербург',
+  phone: '+79117778812',
+  bio: 'who is',
+};
+const client2 = {
+  name: 'Иван Иванов',
+  photo: require('../assets/Ivan.png'),
+  city: 'Москва',
+  phone: '+79211234567',
+  bio: 'who is',
+};
+const client3 = {
+  name: 'Антон Николаев',
+  photo: require('../assets/Anton.png'),
+  city: 'Выборг',
+  phone: '+79054541012',
+  bio: 'who is',
+};
+
+export default function Clients() {
+  const [clients, setClients] = useState([client1, client2, client3]);
+  const [findState, setFindState] = useState('');
+  const onFind = e => {setFindState(e.target.value)};
+
   return (
-    <TouchableOpacity style={styles.container}>
-      <View style={[styles.row, styles.shadow]}>
-        <Image source={client.photo} style={styles.avatar} />
-        <View style={styles.textBlock}>
-          <Text style={styles.name}>{client.name}</Text>
-          <Text style={styles.city}>{client.city}</Text>
-        </View>
-        <Image
-          style={styles.arrow}
-          source={require('../assets/Navigation.png')}
-        />
+    <View style={styles.container}>
+      <Text style={styles.header}>Клиенты</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={onFind}
+        value={findState}
+        placeholder="Поиск"
+        keyboardType="numeric"
+      />
+      <View>
+        {clients.map((client) => (
+          <ClientItem client={client} />
+        ))}
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 
@@ -24,46 +55,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 8,
   },
-  row: {
-    backgroundColor: 'white',
-    flexDirection: 'row',
+  header: {
+    fontSize: 34,
+    fontWeight: 700,
+  },
+  input: {
+    marginTop:16,
+    marginBottom:24,
+    height: 40,
+    borderWidth: 1,
+    padding: 15,
     borderRadius: 16,
-    height: 92,
-    alignItems: 'center',
-  },
-  avatar: {
-    marginLeft: 10,
-    height: 44,
-    width: 44,
-  },
-  textBlock: {
-    height: 44,
-    marginLeft: 10,
-    flex: 1,
-  },
-  name: {
-    height: 24,
-    fontWeight: '600',
-    fontSize: 16,
-  },
-  city: {
-    color: '#A3A3A3',
-    lineHeight: 24,
-  },
-  arrow: {
-    marginRight: 16,
-    width: 24,
-    height: 24,
-  },
-  shadow: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 5.41,
-
-    elevation: 2,
+    border: 'none',
+    background: '#F6F6F6',
   },
 });

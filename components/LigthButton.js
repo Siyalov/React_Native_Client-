@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 export default function LigthButton(props) {
-  console.log('LigthButton')
- 
+  console.log('LigthButton');
+
   return (
     <View style={styles.chat}>
       <Text style={styles.text}>{props.text}</Text>
