@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Text, View, StyleSheet, TextInput } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Image } from 'react-native';
 
 import ClientItem from '../components/ClientItem';
 
@@ -29,18 +29,23 @@ const client3 = {
 export default function Clients() {
   const [clients, setClients] = useState([client1, client2, client3]);
   const [findState, setFindState] = useState('');
-  const onFind = e => {setFindState(e.target.value)};
+  const onFind = (e) => {
+    setFindState(e.target.value);
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Клиенты</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={onFind}
-        value={findState}
-        placeholder="Поиск"
-        keyboardType="numeric"
-      />
+      <View style={styles.imageInput}>
+        <Image style={styles.search} source={require('../assets/Icon3.svg')} />
+        <TextInput
+          style={styles.input}
+          onChangeText={onFind}
+          value={findState}
+          placeholder="Поиск"
+          keyboardType="numeric"
+        />
+      </View>
       <View>
         {clients.map((client) => (
           <ClientItem client={client} />
@@ -60,11 +65,17 @@ const styles = StyleSheet.create({
     fontWeight: 700,
   },
   input: {
-    marginTop:16,
-    marginBottom:24,
-    height: 40,
-    borderWidth: 1,
-    padding: 15,
+   padding: 10,
+  },
+  search: {    
+    marginLeft: 15,
+    
+  },
+  imageInput: {
+    flexDirection: 'row',
+    marginTop: 16,
+    marginBottom: 24,
+    alignItems: "center",  
     borderRadius: 16,
     border: 'none',
     background: '#F6F6F6',

@@ -5,6 +5,7 @@ export default function ActiveButton(props) {
   console.log(props);
   console.log(props.text);
   console.log('LigthButton');
+   console.log('Привет');
 
   return (
     <View style={styles.call}>
