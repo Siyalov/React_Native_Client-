@@ -4,7 +4,7 @@ import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 export default function ClientItem({ client }) {
   return (
     
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Clients')}>
       <View style={[styles.row, styles.shadow]}>
         <Image source={client.photo} style={styles.avatar} />
         <View style={styles.textBlock}>

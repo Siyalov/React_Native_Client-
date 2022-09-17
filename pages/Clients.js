@@ -26,7 +26,7 @@ const client3 = {
   bio: 'who is',
 };
 
-export default function Clients() {
+export default function Clients({ navigation }) {
   const [clients, setClients] = useState([client1, client2, client3]);
   const [findState, setFindState] = useState('');
   const onFind = (e) => {
@@ -65,17 +65,16 @@ const styles = StyleSheet.create({
     fontWeight: 700,
   },
   input: {
-   padding: 10,
+    padding: 10,
   },
-  search: {    
+  search: {
     marginLeft: 15,
-    
   },
   imageInput: {
     flexDirection: 'row',
     marginTop: 16,
     marginBottom: 24,
-    alignItems: "center",  
+    alignItems: 'center',
     borderRadius: 16,
     border: 'none',
     background: '#F6F6F6',

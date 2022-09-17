@@ -6,6 +6,7 @@ import {
   Image,
   Dimensions,
   Button,
+  TouchableOpacity,
 } from 'react-native';
 import ActiveButton from '../components/ActiveButton';
 import LigthButton from '../components/LigthButton';
@@ -13,18 +14,23 @@ import MoreButton from '../components/MoreButton';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-export default function Profile() {
+export default function Profile({ navigation, user }) {
   return (
     <View style={styles.container}>
       <View style={styles.topMenu}>
-        <Image
-          style={styles.icon}
-          source={require('../assets/arrow-left.svg')}
-        />
-        <Image
-          style={styles.icon}
-          source={require('../assets/Edit_Square.svg')}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Clients')}>
+          <Image
+            style={styles.icon}
+            onPress={() => alert('GHJK')}
+            source={require('../assets/arrow-left.svg')}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            style={styles.icon}
+            source={require('../assets/Edit_Square.svg')}
+          />
+        </TouchableOpacity>
       </View>
       <View style={[styles.image, styles.shadow]}>
         <View style={styles.circle} />
@@ -43,6 +49,7 @@ export default function Profile() {
         По образованию маркетолог, много лет работал на крупные компании. Теперь
         решил погрузиться в мир IT.
       </Text>
+      <View style={styles.moreButton}></View>
       <MoreButton />
     </View>
   );
@@ -105,5 +112,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
     elevation: 7,
+  },
+  moreButton: {
+    marginTop: 20,
   },
 });

@@ -11,3 +11,5 @@ export default function Clients({navigation}) {
     </TouchableOpacity>
   );
 }
+
+

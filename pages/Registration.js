@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, Image } from 'react-native';
 
 import InputField from '../components/InputField';
 
-export default function Registration() {
+export default function Registration({ navigation }) {
   console.log('Registration');
 
   return (
