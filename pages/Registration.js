@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 
 import InputField from '../components/InputField';
 
@@ -7,19 +14,23 @@ export default function Registration({ navigation }) {
   console.log('Registration');
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.topMenu}>
-        <Image
-          style={styles.icon}
-          source={require('../assets/arrow-left.svg')}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Clients' )}>
+          <Image
+            style={styles.icon}
+            onPress={() => alert('GHJK')}
+            source={require('../assets/arrow-left.svg')}
+          />
+        </TouchableOpacity>
+
         <Text style={styles.title}>Добавить нового</Text>
         <View></View>
       </View>
       <View style={styles.fields}>
-        <InputField />
+        <InputField navigation={navigation} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

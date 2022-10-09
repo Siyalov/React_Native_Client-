@@ -1,76 +1,97 @@
-import React from 'react';
-import { useState } from 'react';
-import { Text, TextInput, View, StyleSheet, SafeAreaView } from 'react-native';
+import React from "react";
+import { useState } from "react";
+import {
+  Text,
+  TextInput,
+  View,
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
 
-export default function ImputField() {
-  console.log('ImputField');
-  const [inputState, setInputState] = useState('');
+export default function ImputField({ navigation }) {
+  console.log("ImputField");
+  const [photo, setPhoto] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
+  const [bio, setBio] = useState("");
+  const onAddClick = () => {
+    const client = { name, phone, city, bio };
+    navigation.navigate("Clients", { newClient: client });
+  };
 
   return (
     <SafeAreaView style={styles.field}>
       <Text style={styles.label}>Фото</Text>
       <TextInput
         style={styles.input}
-        onChangeText={setInputState}
-        value={inputState}
+        onChangeText={setPhoto}
+        value={photo}
         placeholder="Вставьте ссылку на фото"
         keyboardType="numeric"
       />
       <Text style={styles.label}>ФИО</Text>
       <TextInput
         style={styles.input}
-        onChangeText={setInputState}
-        value={inputState}
+        onChangeText={setName}
+        value={name}
         placeholder="Введите фамилию и имя"
         keyboardType="numeric"
       />
       <Text style={styles.label}>Номер телефона</Text>
       <TextInput
         style={styles.input}
-        onChangeText={setInputState}
-        value={inputState}
+        onChangeText={setPhone}
+        value={phone}
         placeholder="+7 (000) 000 00 00"
         keyboardType="numeric"
       />
       <Text style={styles.label}>Город</Text>
       <TextInput
         style={styles.input}
-        onChangeText={setInputState}
-        value={inputState}
+        onChangeText={setCity}
+        value={city}
         placeholder="Выберите город"
         keyboardType="numeric"
       />
-      <Text multiline style={styles.label}>
-        {' '}
-        Био
-      </Text>
+      <Text style={styles.label}> Био</Text>
       <TextInput
-        style={styles.input}
-        onChangeText={setInputState}
-        value={inputState}
-        placeholder="Укажите хобби, интересы, '\n' образование и стаж работы"
+        style={styles.input2}
+        onChangeText={setBio}
+        value={bio}
+        multiline={true}
+        numberOfLines={4}
+        placeholder="Укажите хобби, интересы, образование и стаж работы"
         keyboardType="numeric"
       />
-      <View style={styles.marginBottom}> </View>
-      <View style={styles.more}>
+      <View style={styles.marginBottom}></View>
+      <TouchableOpacity style={styles.more} onPress={onAddClick}>
         <Text style={[styles.text, styles.more]}>Добавить</Text>
-      </View>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
+    height: 48,
     borderWidth: 1,
     padding: 10,
-    background: '#F7F7F7',
     borderRadius: 16,
-    border: 'none',
-    backgroundColor: 'lightgrey',
+    border: "none",
+    backgroundColor: "#ededed",
+  },
+  input2: {
+    height: 92,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 16,
+    border: "none",
+    backgroundColor: "#ededed",
   },
   field: {
-    flexDirection: 'column',
+    flexDirection: "column",
     marginBottom: 5,
   },
   label: {
@@ -78,21 +99,21 @@ const styles = StyleSheet.create({
   },
   more: {
     padding: 6,
-    backgroundColor: '#FB7360',
+    backgroundColor: "#FB7360",
     borderRadius: 16,
     flex: 1,
     height: 52,
     marginLeft: 6,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 18,
-    color: 'white',
+    color: "white",
     lineHeight: 24,
   },
   marginBottom: {
-    marginTop: 95,
+    marginTop: 40,
   },
 });

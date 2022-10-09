@@ -1,10 +1,9 @@
-import React from 'react';
-import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import React from "react";
+import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function ClientItem({ client }) {
+export default function ClientItem({ client, onPress }) {
   return (
-    
-    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Clients')}>
+    <TouchableOpacity style={styles.container} onPress={() => onPress(client)}>
       <View style={[styles.row, styles.shadow]}>
         <Image source={client.photo} style={styles.avatar} />
         <View style={styles.textBlock}>
@@ -13,23 +12,23 @@ export default function ClientItem({ client }) {
         </View>
         <Image
           style={styles.arrow}
-          source={require('../assets/Navigation.png')}
+          source={require("../assets/Navigation.png")}
         />
       </View>
     </TouchableOpacity>
   );
 }
 
-const styles = StyleSheet.create({  
-  container: {    
+const styles = StyleSheet.create({
+  container: {
     paddingVertical: 8,
   },
   row: {
-    backgroundColor: 'white',
-    flexDirection: 'row',
+    backgroundColor: "white",
+    flexDirection: "row",
     borderRadius: 16,
     height: 92,
-    alignItems: 'center',
+    alignItems: "center",
   },
   avatar: {
     marginLeft: 10,
@@ -43,11 +42,11 @@ const styles = StyleSheet.create({
   },
   name: {
     height: 24,
-    fontWeight: '600',
+    fontWeight: "600",
     fontSize: 16,
   },
   city: {
-    color: '#A3A3A3',
+    color: "#A3A3A3",
     lineHeight: 24,
   },
   arrow: {
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
     height: 24,
   },
   shadow: {
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 1,
@@ -67,7 +66,3 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
 });
-
-
-
-
